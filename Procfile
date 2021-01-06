@@ -1,1 +1,1 @@
-web : gunicorn GerenciadorTarefas.wsgi
+web: gunicorn GerenciadorTarefas.wsgi
