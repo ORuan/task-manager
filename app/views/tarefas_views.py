@@ -4,6 +4,10 @@ from django.contrib.auth.models import User
 from ..services import tarefa_service
 from django.contrib.auth.decorators import login_required
 
+
+def index(request):
+    return render(request, 'index.html')
+
 @login_required
 def listar_tarefas(request):
     usuario_logado  = request.user.id
@@ -45,5 +49,5 @@ def remover_tarefas(request, id):
     tarefa_especifica = tarefa_service.listar_tarefas_id(id,usuario_logado)
     if request.method == 'POST':
         tarefa_service.deletar_tarefa(tarefa_especifica,usuario_logado)
-        return redirect ('listar_tarefas') 
+        return redirect ('listar_tarefas')
     return render(request, 'tarefas/confirma_exclusao.html',{'tarefa':tarefa_especifica })
