@@ -4,7 +4,8 @@ from app.views.tarefas_views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('tarefas/', include('app.urls')),
+    path('tarefas/', include(('app.urls','app'), namespace='app')),
+    path('home/', index, name="home"),
     path('', index, name="index"),
 
 ]

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if tarefas %}
+        <h1 class="text-center p-3">Tarefas Públicas</h1> 
+        {% for tarefa in tarefas %}
+        <div class="card mb-3">
+            <div class="card-header">
+                {{ tarefa.get_prioridade_display }}
+            </div>
+            <div class="card-body">
+                <h5 class="card-titile">{{ tarefa.titulo }}</h5>
+                <p class="card-text">{{ tarefa.descricao }}</p>
+                <p class="card-text">{{ tarefa.usuario }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <h1 class="text-center p-3">Não há tarefas públicas</h1> 
+    {% endif %}
+{% endblock %}

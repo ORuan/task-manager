@@ -4,6 +4,8 @@
 *.pyc
 __pycache__/
 local_settings.py
-env
+.env
 *.swp
 *.md
+*.sqlite3
+*.sqlite

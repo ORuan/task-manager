@@ -9,7 +9,7 @@ def cadastrar_usuario(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('listar_tarefas')
+            return redirect('app:listar_tarefas')
     else:
         form = UserCreationForm()
     return render(request, 'usuarios/form_usuario.html', {'form':form})
@@ -21,10 +21,10 @@ def logar_usuario(request):
         usuario = authenticate(request, username=username, password=paswd)
         if usuario is not None:
             login(request, usuario)
-            return redirect('listar_tarefas')
+            return redirect('app:listar_tarefas')
         else:
             messages.error(request, 'As credências estão incorretas!')
-            return redirect('logar_usuario')
+            return redirect('app:logar_usuario')
 
 
     login_form = AuthenticationForm()
@@ -32,4 +32,4 @@ def logar_usuario(request):
 
 def deslogar_usuario(request):
     logout(request)
-    return redirect('logar_usuario')
+    return redirect('app:logar_usuario')

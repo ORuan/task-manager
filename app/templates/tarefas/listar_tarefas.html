@@ -1,10 +1,8 @@
 {% extends 'base.html' %}
-
 {% block content %}
 	<h1 class="text-center p-3">Listagem de Tarefas</h1> 
 
 	{% for tarefa in tarefas %}
-	
 	<div class="card mb-3">
 		<div class="card-header">
 			{{ tarefa.get_prioridade_display }}
@@ -12,12 +10,12 @@
 		<div class="card-body">
 			<h5 class="card-titile">{{ tarefa.titulo }}</h5>
 			<p class="card-text">{{ tarefa.descricao }}</p>
+			<p class="card-text">{{ tarefa.usuario }}</p>
 			<hr>
-			<a href="{% url 'editar_tarefas' tarefa.id %}" class="p-3">Alterar tarefa</a>
-			<a href="{% url 'remover_tarefas' tarefa.id %}"class="md-3 btn btn-danger">Remover tarefa</a>
-
+			<a href="{% url 'app:editar_tarefas' tarefa.id %}" class="p-3">Alterar tarefa</a>
+			<a href="{% url 'app:remover_tarefas' tarefa.id %}"class="md-3 btn btn-danger">Remover tarefa</a>
 		</div>
 	</div>
 	{% endfor %}
-	<a href="{% url 'cadastrar_tarefas' %}"><input type="button" class="btn btn-primary" value="Cadastrar Nova Tarefa"></a>
+	<a href="{% url 'app:cadastrar_tarefas' %}"><input type="button" class="btn btn-primary" value="Cadastrar Nova Tarefa"></a>
 {% endblock %}

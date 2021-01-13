@@ -1,9 +1,8 @@
 {% extends 'base.html' %}
 {% load boot_css %}
 {% block content %}
-    
     <h1 class="text-center p-3">Cadastro de usuários</h1>
-    <form method="post">
+    <form method="post" class="p-3">
         {% csrf_token %}
         <div class="form-group">
             {{form.username.errors}}
@@ -23,7 +22,5 @@
         <div class="form-group">
             <input type="submit" class="btn btn-primary" value="Cadastrar">
         </div>
-
-
     </form>
 {% endblock %}
