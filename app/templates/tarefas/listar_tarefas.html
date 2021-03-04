@@ -10,7 +10,7 @@
 		<div class="card-body">
 			<h5 class="card-titile">{{ tarefa.titulo }}</h5>
 			<p class="card-text">{{ tarefa.descricao }}</p>
-			<p class="card-text">{{ tarefa.usuario }}</p>
+			<p class="card-text">by {{ tarefa.usuario }}</p>
 			<hr>
 			<a href="{% url 'app:editar_tarefas' tarefa.id %}" class="p-3">Alterar tarefa</a>
 			<a href="{% url 'app:remover_tarefas' tarefa.id %}"class="md-3 btn btn-danger">Remover tarefa</a>
