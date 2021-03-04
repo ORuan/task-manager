@@ -1,5 +1,5 @@
 import os
-#import django_heroku
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -14,7 +14,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '0.0.0.0']
 
 
 # Application definition
@@ -111,4 +111,4 @@ LOGIN_URL = 'app:logar_usuario'
 STATIC_ROOT = '/static/'
 STATIC_URL = '/static/'
 
-#django_heroku.settings(locals())
+django_heroku.settings(locals())
